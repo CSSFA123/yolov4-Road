@@ -1,0 +1,13 @@
+# train and val datasets (image directory or *.txt file with image paths)
+train: /media/quan/新增磁碟區/COCO/train_new/images/  # 118k images
+val: /media/quan/新增磁碟區/COCO/val_new/images/
+#test: ../coco/testdev2017.txt  # 20k images for submission to https://competitions.codalab.org/competitions/20794
+
+#a = /home/quan/ScaledYOLOv4-yolov4-csp/data/COCO/images/123.jpg
+#print(a.replace(images, labels))
+#>>/home/quan/ScaledYOLOv4-yolov4-csp/data/COCO/labels/123.txt
+# number of classes
+nc: 6
+
+# class names
+names: ['person', 'bicycle', 'car', 'motorcycle', 'bus', 'truck']
