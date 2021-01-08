@@ -13,7 +13,7 @@
     <option name="ADD_SOURCE_ROOTS" value="true" />
     <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
     <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test.py" />
-    <option name="PARAMETERS" value="--img 896 --conf 0.001 --batch 2 --device 0 --data coco.yaml --cfg models/yolov4-p5.yaml --weights weights/teacher.pt --verbose" />
+    <option name="PARAMETERS" value="--img 320 --conf 0.001 --batch 1 --device 0 --data coco.yaml --cfg cfg/csdarknet53s-panet-spp.cfg --weights runs/exp31/weights/best.pt --verbose" />
     <option name="SHOW_COMMAND_LINE" value="false" />
     <option name="EMULATE_TERMINAL" value="false" />
     <option name="MODULE_MODE" value="false" />

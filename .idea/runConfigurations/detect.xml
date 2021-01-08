@@ -13,7 +13,7 @@
     <option name="ADD_SOURCE_ROOTS" value="true" />
     <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
     <option name="SCRIPT_NAME" value="$PROJECT_DIR$/detect.py" />
-    <option name="PARAMETERS" value="--weights runs/exp15_yolov4-tiny-v1/weights/best.pt --source inference/video/test_video_480p.mp4 --img 416 --conf 0.4 --device 0 --cfg models/yolov4-tiny.cfg --names data/coco.names" />
+    <option name="PARAMETERS" value="--weights weights/student.pt --source inference/video/test_video_480p.mp4 --img 416 --conf 0.3 --device 0 --cfg models/yolov4-tiny.cfg --names data/coco.names" />
     <option name="SHOW_COMMAND_LINE" value="false" />
     <option name="EMULATE_TERMINAL" value="false" />
     <option name="MODULE_MODE" value="false" />

@@ -39,18 +39,34 @@ def detect(save_img=False):
     os.makedirs(out)  # make new output folder
     half = device.type != 'cpu'  # half precision only supported on CUDA
 
-    # Load model
-    model = Darknet(cfg, imgsz).cuda()
-    try:
-        model.load_state_dict(torch.load(weights[0], map_location=device)['model'])
-    except:
-        model = model.to(device)
-        load_darknet_weights(model, weights[0])
-    #model = attempt_load(weights, map_location=device)  # load FP32 model
-    #imgsz = check_img_size(imgsz, s=model.stride.max())  # check img_size
+    # # Load model
+    # model = Darknet(cfg, imgsz).cuda()
+    # try:
+    #     model.load_state_dict(torch.load(weights[0], map_location=device)['model'])
+    # except:
+    #     model = model.to(device)
+    #     load_darknet_weights(model, weights[0])
+    # #model = attempt_load(weights, map_location=device)  # load FP32 model
+    # #imgsz = check_img_size(imgsz, s=model.stride.max())  # check img_size
+    # model.to(device).eval()
+    # if half:
+    #     model.half()  # to FP16
+
+    ###################################
+    ###### load  pruned  model ########
+    ###################################
+    # Initialize model
+    model = Darknet(opt.cfg, imgsz).to(device)
+
+    # Load weights
+    # attempt_download(weights)
+    # if weights[0].endswith('.pt'):  # pytorch format
+    model.load_state_dict(torch.load(weights[0], map_location=device)['model'], strict=False)
     model.to(device).eval()
-    if half:
-        model.half()  # to FP16
+    model.half()  # to FP16
+    # else:  # darknet format
+    #     load_darknet_weights(model, weights)
+
 
     # Second-stage classifier
     classify = False
@@ -188,3 +204,5 @@ if __name__ == '__main__':
                 strip_optimizer(opt.weights)
         else:
             detect()
+
+

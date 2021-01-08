@@ -1,5 +1,6 @@
+################
 ## yolov4-csp ##
-
+################
 detect.py
 
 --weights runs/exp3_yolov4-csp-v2/weights/last.pt --source inference/test_video_480p.mp4 --img 640 --conf 0.3 --device 0 --cfg models/yolov4-csp.cfg --names data/coco.names
@@ -10,8 +11,9 @@ test.py
 --img 640 --conf 0.3 --batch 8 --device 0 --data coco.yaml --cfg models/yolov4-csp.cfg --weights weights/yolov4-csp.weights
 
 
-
+#################
 ## yolov4-tiny ##
+#################
 
 train.py
 
@@ -56,3 +58,81 @@ data/coco.names
 
 
 test.py
+
+--img
+416
+--conf
+0.001
+--batch
+64
+--device
+0
+--data
+coco.yaml
+--cfg
+cfg/yolov4-tiny.cfg
+--weights
+weights/student.pt
+--verbose
+
+##############
+## yolobile ##
+##############
+
+pretrain model
+
+detect.py
+
+--weights
+weights/yolov4dense.pt
+--source
+inference/video/test_video_480p.mp4
+--img
+320
+--conf
+0.3
+--device
+0
+--cfg
+cfg/csdarknet53s-panet-spp.cfg
+--names
+data/coco_paper.names
+--classes
+0
+1
+2
+3
+5
+7
+
+pruned model
+
+--weights
+weights/best8x-514.pt
+--source
+inference/video/test_video_480p.mp4
+--img
+320
+--conf
+0.3
+--device
+0
+--cfg
+cfg/csdarknet53s-panet-spp_80.cfg
+--names
+data/coco_paper.names
+--class
+0
+1
+2
+3
+5
+7
+
+
+
+our model
+
+
+
+
